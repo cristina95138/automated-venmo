@@ -1,5 +1,6 @@
 from twilio.rest import Client
 import os
+from utils import get_month
 
 def send_sms(api_key, api_secret, twilio_phone_number, phone_number, message):
     client = Client(api_key, api_secret)
@@ -19,7 +20,10 @@ def main():
     api_secret = os.getenv("TWILIO_AUTH_TOKEN")
     twilio_phone_number = os.getenv("TWILIO_PHONE_NUMBER")
     phone_numbers = os.getenv("PHONE_NUMBERS").split(",")  # Split phone numbers by comma
-    message = "https://venmo.com/?txn=pay&audience=public&recipients=CristinaLawson&amount=5&note=sppotify"
+    month = get_month(now)
+    
+    description =f"Spotify%20for%20the%20month%20of%20{month}%20—Sent%20by%20Cristina's%20Automated%20Virtual%20Assistant%20Elmo"
+    message = f"Venmo request for Spotify Family Plan from Cristina :P https://venmo.com/?txn=pay&audience=public&recipients=CristinaLawson&amount=4.25&note={description}"
     
     for number in phone_numbers:
         number = number.strip()  # Remove any leading/trailing whitespace

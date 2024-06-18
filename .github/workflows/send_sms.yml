@@ -1,7 +1,6 @@
 name: Send Monthly SMS
 
 on:
-  push:
   schedule:
     - cron: "0 0 1 * *"
 
