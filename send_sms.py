@@ -9,7 +9,7 @@ def send_sms(api_key, api_secret, twilio_phone_number, phone_number, message):
         message = client.messages.create(
             body=message,
             from_=twilio_phone_number,
-            to=phone_number
+            to=phone_number,
         )
         print(f"SMS sent successfully.")
     except Exception as e:
