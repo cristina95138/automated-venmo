@@ -22,9 +22,9 @@ def main():
     twilio_phone_number = os.getenv("TWILIO_PHONE_NUMBER")
     phone_numbers = os.getenv("PHONE_NUMBERS").split(",")  # Split phone numbers by comma
     current_date = datetime.datetime.now()
-    current_month = current_date.month
+    month = current_date.strftime('%B')
     
-    description =f"Spotify%20for%20the%20month%20of%20{current_month}%20—Sent%20by%20Cristina's%20Automated%20Virtual%20Assistant%20Elmo"
+    description =f"Spotify%20for%20the%20month%20of%20{month}%20—Sent%20by%20Cristina's%20Automated%20Virtual%20Assistant%20Elmo"
     message = f"Venmo request for Spotify Family Plan from Cristina :P https://venmo.com/?txn=pay&audience=public&recipients=CristinaLawson&amount=4.25&note={description}"
     
     for number in phone_numbers:
